@@ -36,17 +36,16 @@ SUCURSALES = [
 ]
 
 
-class subCategoria(models.Model):
-    subcategoria= models.CharField(max_length=45,choices=SUBCATEGORIAS)
-    def __str__(self):
-        return self.subcategoria
-
 class Categoria(models.Model):
     categoria= models.CharField(max_length=45,choices=CATEGORIAS)
-    subcategoria=models.ForeignKey(subCategoria,null=False, on_delete=models.CASCADE)
     def __str__(self):
         return self.categoria
 
+class subCategoria(models.Model):
+    subcategoria= models.CharField(max_length=45,choices=SUBCATEGORIAS)
+    categoria=models.ForeignKey(Categoria,null=True,blank=True, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.subcategoria
 class Sucursal(models.Model):
     sucursal= models.CharField(max_length=45,choices=SUCURSALES)
     def __str__(self):
@@ -61,7 +60,7 @@ class Producto(models.Model):
     precio_venta=models.FloatField(max_length=20)
     state = models.BooleanField('Estado',default = True)
     imagen=models.ImageField(upload_to='productos/', null=True, blank=True)
-    categoria=models.ForeignKey(Categoria,null=False, on_delete=models.CASCADE)
+    subCategoria=models.ForeignKey(subCategoria,null=True, on_delete=models.CASCADE)
     
     def __str__(self):
         return self.producto

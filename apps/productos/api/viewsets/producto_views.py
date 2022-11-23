@@ -20,13 +20,13 @@ class ProductoViewSet(viewsets.ModelViewSet):
         if pk == None:
             return (
                 model.objects.filter(state=True)
-                .prefetch_related("categoria")
+                .prefetch_related("subCategoria")
             )
         else:
             return (
                 model.objects.filter(state=True)
                 .filter(id=pk)
-                .prefetch_related("categoria")
+                .prefetch_related("subCategoria")
                 .first()
             )
 

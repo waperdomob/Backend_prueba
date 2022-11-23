@@ -83,12 +83,10 @@ class UserViewSet(viewsets.GenericViewSet):
     def partial_update(self, request, pk=None):
         user = self.get_object(pk)
         user_serializer = CustomUserSerializer(user, data=request.data, partial=True)
-        if user_serializer.is_valid():
-            if user.image:
-                os.remove(user.image.path)
+        if user_serializer.is_valid():           
             user_serializer.save()
             return Response({
-                'message': 'Imagen de perfil actualizada correctamente'
+                'message': 'Usuario actualizado correctamente'
             })
         return Response({
                 'Error': 'Hubo un error al actualizar los datos'

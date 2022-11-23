@@ -12,6 +12,7 @@ router = DefaultRouter()
 router.register(r'productos',ProductoViewSet, basename = 'productos')
 router.register(r'categorias',categoriaViewset, basename = 'categorias')
 router.register(r'subCategorias',subCategoriaViewset, basename = 'subCategorias')
+router.register(r'sucursales', sucursalViewset, basename='sucursales')
 router.register(r'inputs',InputViewSet, basename = 'entradas')
 router.register(r'outputs',OutputViewSet, basename = 'salidas')
 

@@ -6,7 +6,7 @@ from apps.productos.models import input
 from apps.users.api.serializers.user_serializers import UserSerializer
 
 
-class InputSerializer(serializers.PrimaryKeyRelatedField, serializers.ModelSerializer):
+class InputSerializer( serializers.ModelSerializer):
     usuario = UserSerializer
     producto = ProductoSerializer
     class Meta:

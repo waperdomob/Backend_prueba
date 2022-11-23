@@ -37,13 +37,13 @@ class InputViewSet(viewsets.ModelViewSet):
         serializer = InputSerializer(data=request.data)
 
         if serializer.is_valid():
-            producto = Producto.objects.get( producto = serializer.producto)
+            producto = Producto.objects.filter( id = request.data['producto']).first()
             if producto:
-                stock = producto.stock + serializer.cantidad
+                stock = producto.stock + int(request.data['cantidad'])
                 producto.stock = stock
                 producto.save()
             else:
-                producto= serializer.producto
+                producto= serializer.validated_data.get('producto')
                 producto.save()
             
             serializer.save()

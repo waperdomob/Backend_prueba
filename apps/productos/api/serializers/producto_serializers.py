@@ -18,8 +18,9 @@ class ProductoSerializer(serializers.ModelSerializer):
             "stock",
             "precio_compra",
             "precio_venta",
+            "imagen",
             "state",
-            "categoria",
+            "subCategoria",
         ]
 
 

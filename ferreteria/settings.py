@@ -107,7 +107,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ferreteriaHGM',#local
         'USER': 'postgres',#miUsuarioPostgres
-        'PASSWORD': '123456789',#miUsuarioPostgres
+        'PASSWORD': '12345678',#miUsuarioPostgres
         'HOST': 'localhost',
         'DATABASE_PORT':'5432',#local
      }

@@ -36,15 +36,15 @@ class OutputViewSet(viewsets.ModelViewSet):
     def create(self, request, *args, **kwargs):
         parser_classes = [MultiPartParser, FormParser]
         serializer = OutputSerializer(data=request.data)
-
         if serializer.is_valid():
-            producto = Producto.objects.get( producto = serializer.producto)
+            producto = Producto.objects.filter( id = request.data['producto']).first()
+            print(producto)
             if producto:
-                stock = producto.stock - serializer.cantidad
+                stock = producto.stock - int(request.data['cantidad'])
                 producto.stock = stock
                 producto.save()
             else:
-                producto= serializer.producto
+                producto= serializer.validated_data.get('producto')
                 producto.save()
             
             serializer.save()
