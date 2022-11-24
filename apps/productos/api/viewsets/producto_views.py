@@ -13,7 +13,6 @@ from apps.productos.api.serializers.producto_serializers import \
 
 class ProductoViewSet(viewsets.ModelViewSet):
     serializer_class = ProductoSerializer
-    # permission_classes = [IsAuthenticatedOrReadOnly]
 
     def get_queryset(self, pk=None):
         model = self.get_serializer().Meta.model

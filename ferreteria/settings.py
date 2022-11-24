@@ -62,9 +62,9 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
-    #'DEFAULT_PERMISSION_CLASSES': (
-    #    'rest_framework.permissions.IsAuthenticated',
-    #)
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    )
 }
 
 MIDDLEWARE = [
@@ -107,7 +107,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'ferreteriaHGM',#local
         'USER': 'postgres',#miUsuarioPostgres
-        'PASSWORD': '12345678',#miUsuarioPostgres
+        'PASSWORD': '123456789',#miUsuarioPostgres
         'HOST': 'localhost',
         'DATABASE_PORT':'5432',#local
      }

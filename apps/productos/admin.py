@@ -5,7 +5,7 @@ from apps.productos.models import *
 # Register your models here.
 
 class categoriaAdmin(admin.ModelAdmin):
-    list_display = ('id','categoria','subcategoria')
+    list_display = ('id','categoria')
 class subCategoriAdmin(admin.ModelAdmin):
     list_display = ('id','subcategoria')
 
